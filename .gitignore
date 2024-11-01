@@ -1,0 +1,6 @@
+# Ignore all .vscode folders in any subdirectory
+**/.vscode/
+
+# Ignore all input and output text files in any subdirectory
+**/input.txt
+**/output.txt
