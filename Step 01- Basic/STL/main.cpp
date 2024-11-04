@@ -287,15 +287,16 @@ void explainMultiSet()
     // rest all functions are as set
 }
 
-void explainUSet(){
+void explainUSet()
+{
     unordered_set<int> ust;
     // lower_bond and upper_bond function does not works, rest all functions are same
     // as above, it does not stores in any particular order
     // it has better complexity than set in most cases, expect some when collison happens
-
 }
 
-void explainMap() {
+void explainMap()
+{
     map<int, int> mpp1;
     map<int, pair<int, int>> mpp2;
     map<pair<int, int>, int> mpp3;
@@ -305,7 +306,8 @@ void explainMap() {
     mpp1.insert({2, 4});
     mpp3[{2, 3}] = 10;
 
-    for (auto it : mpp1) {
+    for (auto it : mpp1)
+    {
         cout << it.first << " " << it.second << endl;
     }
 
@@ -314,36 +316,75 @@ void explainMap() {
 
     auto it1 = mpp1.find(3);
     // cout<<*(it1).second;
-    
+
     auto it = mpp2.find(5);
 
     // this is the syntax
     auto it = mpp1.lower_bound(2);
     auto it = mpp2.upper_bound(3);
-
-
-    
 }
 
-void explainMultiMap(){
-    multimap<int,int,int,int> mmp;
+void explainMultiMap()
+{
+    multimap<int, int, int, int> mmp;
     // everything same as map, only it can store multiple keys
-    // only mpp[key] cannot be used here 
+    // only mpp[key] cannot be used here
 }
 
-void explainUnorderdMap(){
-    unordered_map<int,int>umpp;
-    // same as set and unordered_set difference 
+void explainUnorderdMap()
+{
+    unordered_map<int, int> umpp;
+    // same as set and unordered_set difference
     // random stored and unique keys
-
 }
+
 
 // * Algorithms
 
-void explainExtra(){
+bool comp(pair<int, int> p1, pair<int, int> p2)
+{
+    if (p1.second < p2.second)
+        return true;
+    if (p1.second > p2.second)
+        return false; // swap
+    //    if they are same
 
+    if (p1.first > p2.first)
+        return true;
+    return false;
 }
 
+
+void explainExtra()
+{
+
+    sort(a, a + n);
+    sort(v.begin(), v.end());
+
+    sort(a_2, a + 4);
+    sort(a, a + n, greater<int>);
+
+    pair<int, int> a[] = {{1, 2}, {2, 1}, {4, 1}};
+    // sort it according to second element
+    // if second element is same, then sort
+    // it according to first elememt but in descending
+
+    sort(a, a + n, comp);
+    // {{4,1}, {2,1}, {1,2}}
+
+    int num = 7;
+    int cnt = __builtin_popcount();
+    long long num = 1234566743373;
+    int cnt = __builtin_popcountll();
+
+    string s = "123";
+    sort(s.begin(), s.end());
+    do
+    {
+        cout << s << endl;
+    } while (next_permutation(s.begin(), s.end()));
+    int maxx = *max_element(a, a + n);
+}
 
 
 int main()
