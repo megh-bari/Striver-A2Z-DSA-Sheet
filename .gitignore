@@ -4,3 +4,7 @@
 # Ignore all input and output text files in any subdirectory
 **/input.txt
 **/output.txt
+
+# Ignore all files named jspwTest.cpp and jspwTest.exe
+jspwTest.cpp
+jspwTest.exe
