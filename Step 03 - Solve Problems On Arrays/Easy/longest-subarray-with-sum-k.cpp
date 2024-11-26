@@ -1,35 +1,35 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int longSubArrWithSumK(int arr[], int n, long long k) {
-   map<long long, int> prefixSumMap; 
-    long long sum = 0;
-    int maxLength = 0;
+int longSubArrWithSumK(vector<int>& arr, int n, long long k) {
+    int left = 0, right = 0;
+    long long sum = arr[0];
+    int maxLen = 0;
 
-    for (int i = 0; i < n; i++) {
-        sum += arr[i];
-
+    while (right < n) {
+        while (left <= right && sum > k) {
+            sum -= arr[left];
+            left++;
+        }
+        
+    
         if (sum == k) {
-            maxLength = i + 1;
+            maxLen = max(maxLen, right - left + 1);
         }
-
-        if (prefixSumMap.find(sum - k) != prefixSumMap.end()) {
-            maxLength = max(maxLength, i - prefixSumMap[sum - k]);
-        }
-
-        if (prefixSumMap.find(sum) == prefixSumMap.end()) {
-            prefixSumMap[sum] = i;
-        }
+        
+       
+        right++;
+        if (right < n) sum += arr[right];  
     }
-
-    return maxLength;
+    
+    return maxLen;
 }
 
 int main() {
     int n;
     long long k;
     cin >> n >> k;
-    int arr[n];
+    vector<int> arr(n);
 
     for (int i = 0; i < n; i++) {
         cin >> arr[i];
