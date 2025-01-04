@@ -1,5 +1,8 @@
 #include <bits/stdc++.h>
 
+using namespace std;
+
+
 bool canWePlace(vector<int>&stalls, int dist, int cows) {
   int cntCows = 1, last = stalls[0];
   int n = stalls.size();
