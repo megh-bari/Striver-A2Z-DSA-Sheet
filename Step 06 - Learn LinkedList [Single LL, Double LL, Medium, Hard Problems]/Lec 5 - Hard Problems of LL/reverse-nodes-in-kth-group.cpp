@@ -33,7 +33,7 @@ Node *kReverse(Node *head, int k){
         if (kthNode == NULL){
 
             if (prevLast){
-                prevLast->next = kthNode;
+                prevLast->next = temp;
             }
 
             break;
