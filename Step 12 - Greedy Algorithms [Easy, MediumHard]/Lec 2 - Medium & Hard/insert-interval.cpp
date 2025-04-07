@@ -6,7 +6,7 @@ public:
         vector<vector<int>> res;
         int i = 0, n = intervals.size();
 
-        // Step 1: Add all intervals that come before the new interval
+        // Step 1: Add all intervals that come before the new interval (left part)
         // These intervals end before the new interval starts, so no overlap
         while (i < n && intervals[i][1] < newInterval[0])
         {
@@ -14,7 +14,7 @@ public:
             i++;
         }
 
-        // Step 2: Merge all overlapping intervals with the new interval
+        // Step 2: Merge all overlapping intervals with the new interval (middle part)
         // Overlap occurs when the start of the current interval is <= the end of newInterval
         while (i < n && intervals[i][0] <= newInterval[1])
         {
@@ -26,7 +26,7 @@ public:
 
         res.push_back(newInterval);
 
-        // Step 3: Add all intervals that come after the new interval
+        // Step 3: Add all intervals that come after the new interval (right side)
         // These intervals start after the new interval ends, so no overlap
         while (i < n)
         {
